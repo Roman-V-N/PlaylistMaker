@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val searchButton = findViewById<Button>(R.id.Search)
+        val searchButton = findViewById<Button>(R.id.search)
         val searchClickListener: View.OnClickListener = object : View.OnClickListener{
             override fun onClick(v: View?) {
                 Toast.makeText(this@MainActivity,"Нажата клавиша \"Поиск\"", Toast.LENGTH_SHORT).show()
@@ -23,12 +23,12 @@ class MainActivity : AppCompatActivity() {
         }
         searchButton.setOnClickListener(searchClickListener)
 
-        val libraryButton = findViewById<Button>(R.id.Library)
+        val libraryButton = findViewById<Button>(R.id.library)
         libraryButton.setOnClickListener{
             Toast.makeText(this@MainActivity,"Нажата клавиша \"Медиатека\"", Toast.LENGTH_SHORT).show()
         }
 
-        var settingsButton = findViewById<Button>(R.id.Settings)
+        val settingsButton = findViewById<Button>(R.id.settings)
         settingsButton.setOnClickListener{
             Toast.makeText(this@MainActivity,"Нажата клавиша \"Настройки\"", Toast.LENGTH_SHORT).show()
         }
