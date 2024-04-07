@@ -14,8 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        >
 
 
         <LinearLayout
@@ -27,15 +26,17 @@
             <ImageView
                 android:id="@+id/back_main"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="12dp"
+                android:layout_height="match_parent"
+                android:padding="@dimen/padding12dp"
                 android:src="@drawable/arrow_back" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="12dp"
+                android:padding="@dimen/padding12dp"
                 android:text="@string/setting"
+                android:textSize="22sp"
+                android:typeface="normal"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -46,14 +47,14 @@
             android:orientation="horizontal">
 
             <TextView
-
-                android:layout_width="0dp"
+                android:layout_width="@dimen/width0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/marginStart16dp"
                 android:layout_weight="1"
                 android:gravity="center|start"
                 android:text="@string/dark_theme"
+                android:typeface="normal"
                 android:textColor="@color/black" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
@@ -73,21 +74,21 @@
             android:orientation="horizontal">
 
             <TextView
-
-                android:layout_width="0dp"
+                android:layout_width="@dimen/width0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/marginStart16dp"
                 android:layout_weight="1"
                 android:gravity="center|start"
                 android:text="@string/share_app"
+                android:typeface="normal"
                 android:textColor="@color/black" />
 
             <ImageView
                 android:id="@+id/share_app"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="12dp"
+                android:padding="@dimen/padding12dp"
                 android:src="@drawable/share" />
 
 
@@ -99,21 +100,21 @@
             android:orientation="horizontal">
 
             <TextView
-
-                android:layout_width="0dp"
+                android:layout_width="@dimen/width0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/marginStart16dp"
                 android:layout_weight="1"
                 android:gravity="center|start"
                 android:text="@string/support"
+                android:typeface="normal"
                 android:textColor="@color/black" />
 
             <ImageView
                 android:id="@+id/support"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="12dp"
+                android:padding="@dimen/padding12dp"
                 android:src="@drawable/support" />
 
 
@@ -126,21 +127,21 @@
             android:orientation="horizontal">
 
             <TextView
-
-                android:layout_width="0dp"
+                android:layout_width="@dimen/width0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/marginStart16dp"
                 android:layout_weight="1"
                 android:gravity="center|start"
                 android:text="@string/user_agreement"
+                android:typeface="normal"
                 android:textColor="@color/black" />
 
             <ImageView
                 android:id="@+id/user_agreement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="12dp"
+                android:padding="@dimen/padding12dp"
                 android:src="@drawable/arrow_forward" />
 
 
