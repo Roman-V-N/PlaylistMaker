@@ -47,7 +47,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="@dimen/width0dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
                 android:layout_marginStart="@dimen/marginStart16dp"
@@ -74,7 +74,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="@dimen/width0dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
                 android:layout_marginStart="@dimen/marginStart16dp"
@@ -100,7 +100,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="@dimen/width0dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
                 android:layout_marginStart="@dimen/marginStart16dp"
@@ -127,7 +127,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="@dimen/width0dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
                 android:layout_marginStart="@dimen/marginStart16dp"
