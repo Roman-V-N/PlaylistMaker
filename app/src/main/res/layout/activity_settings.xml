@@ -30,7 +30,7 @@
                 android:layout_height="match_parent"
                 android:padding="@dimen/padding12dp"
                 android:src="@drawable/arrow_back"
-                android:tint = "?attr/colorOnPrimary"/>
+                app:tint="?attr/colorOnPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -61,9 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|center"
                 android:layout_marginEnd="6dp"
-                />
-
-
+                app:thumbTint="?attr/colorPrimaryVariant"/>
         </LinearLayout>
 
     <LinearLayout style="@style/LinearLayoutSettingHorizontal">

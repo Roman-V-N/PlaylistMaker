@@ -6,8 +6,9 @@
         <item name="colorPrimary">@color/black</item>
         <item name="colorSecondaryVariant">@color/black</item>
         <item name="colorOnPrimary">@color/white</item>
-
+        <item name="colorPrimaryVariant">@color/blue</item>
 
 
     </style>
+    <style name="Theme.PlaylistMaker" parent="Base.Theme.PlaylistMaker" />
 </resources>
