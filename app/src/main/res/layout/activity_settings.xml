@@ -17,29 +17,16 @@
         android:layout_height="match_parent"
         android:orientation="vertical" >
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            tools:ignore="MissingConstraints">
+    <LinearLayout style="@style/LinearLayoutSettingHorizontal">
 
             <ImageView
                 android:id="@+id/back_main"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:padding="@dimen/padding12dp"
-                android:src="@drawable/arrow_back"
-                app:tint="?attr/colorOnPrimary" />
+                style="@style/ImageViewTopBar"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/padding12dp"
-                android:text="@string/setting"
-                android:textSize="22sp"
-                android:typeface="normal"
-                android:textColor="?attr/colorOnPrimary" />
+                style="@style/TextViewTopBar"
+                android:text="@string/setting"/>
+
         </LinearLayout>
 
         <LinearLayout
