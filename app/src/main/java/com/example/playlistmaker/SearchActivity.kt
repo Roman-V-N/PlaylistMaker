@@ -12,7 +12,14 @@ import androidx.appcompat.app.AppCompatActivity
 
 class SearchActivity : AppCompatActivity() {
 
-    var editValue : String = ""
+    private var editValue: String = VALUE_DEF
+    private lateinit var searchEdit : EditText
+
+
+    companion object {
+        const val INPUT_TEXT = "INPUT_TEXT"
+        const val VALUE_DEF = ""
+    }
 
 
     @SuppressLint("MissingInflatedId")
@@ -23,7 +30,7 @@ class SearchActivity : AppCompatActivity() {
 
         val backButton = findViewById<ImageView>(R.id.back_main)
         val clearButton = findViewById<ImageView>(R.id.clear_button)
-        val searchEdit =  findViewById<EditText>(R.id.search_edit)
+        searchEdit = findViewById(R.id.search_edit)
 
         searchEdit.requestFocus()
 
@@ -33,9 +40,10 @@ class SearchActivity : AppCompatActivity() {
         }
 
         clearButton.setOnClickListener {
-            searchEdit.setText("")
+            searchEdit.setText(VALUE_DEF)
             val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMethodManager.hideSoftInputFromWindow(searchEdit.getWindowToken(), 0)
+            inputMethodManager.hideSoftInputFromWindow(searchEdit.windowToken, 0)
+            searchEdit.clearFocus()
         }
 
 
@@ -52,20 +60,30 @@ class SearchActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 // empty
             }
+
+            private fun clearButtonVisibility(s: CharSequence?): Int {
+                return if (s.isNullOrEmpty()) {
+                    View.GONE
+                } else {
+                    View.VISIBLE
+                }
+            }
+
         }
         searchEdit.addTextChangedListener(editTextWatcher)
     }
-
-    private fun clearButtonVisibility(s: CharSequence?): Int {
-        return if (s.isNullOrEmpty()) {
-            View.GONE
-        } else {
-            View.VISIBLE
+        override fun onSaveInstanceState(outState: Bundle) {
+            super.onSaveInstanceState(outState)
+            outState.putString(INPUT_TEXT, editValue)
         }
-    }
+
+       override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+           super.onRestoreInstanceState(savedInstanceState)
+           editValue = savedInstanceState.getString(INPUT_TEXT, VALUE_DEF)
+           searchEdit.setText(editValue)
+        }
+
+}
 
 
-
-
-    }
 
