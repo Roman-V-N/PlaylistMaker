@@ -9,11 +9,12 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.appbar.MaterialToolbar
 
 class SearchActivity : AppCompatActivity() {
 
     private var editValue: String = VALUE_DEF
-    private lateinit var searchEdit : EditText
+    private lateinit var searchEdit: EditText
 
 
     companion object {
@@ -28,14 +29,14 @@ class SearchActivity : AppCompatActivity() {
         setContentView(R.layout.activity_search)
 
 
-        val backButton = findViewById<ImageView>(R.id.back_main)
+        val backButton = findViewById<MaterialToolbar>(R.id.back_main)
         val clearButton = findViewById<ImageView>(R.id.clear_button)
         searchEdit = findViewById(R.id.search_edit)
 
         searchEdit.requestFocus()
 
 
-        backButton.setOnClickListener {
+        backButton.setNavigationOnClickListener {
             super.finish()
         }
 
@@ -61,27 +62,28 @@ class SearchActivity : AppCompatActivity() {
                 // empty
             }
 
-            private fun clearButtonVisibility(s: CharSequence?): Int {
-                return if (s.isNullOrEmpty()) {
-                    View.GONE
-                } else {
-                    View.VISIBLE
-                }
-            }
-
         }
         searchEdit.addTextChangedListener(editTextWatcher)
     }
-        override fun onSaveInstanceState(outState: Bundle) {
-            super.onSaveInstanceState(outState)
-            outState.putString(INPUT_TEXT, editValue)
-        }
 
-       override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-           super.onRestoreInstanceState(savedInstanceState)
-           editValue = savedInstanceState.getString(INPUT_TEXT, VALUE_DEF)
-           searchEdit.setText(editValue)
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(INPUT_TEXT, editValue)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        editValue = savedInstanceState.getString(INPUT_TEXT, VALUE_DEF)
+        searchEdit.setText(editValue)
+    }
+
+    private fun clearButtonVisibility(s: CharSequence?): Int {
+        return if (s.isNullOrEmpty()) {
+            View.GONE
+        } else {
+            View.VISIBLE
         }
+    }
 
 }
 
