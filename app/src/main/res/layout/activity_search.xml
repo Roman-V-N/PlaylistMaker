@@ -9,26 +9,16 @@
     android:theme="@style/Base.Theme.PlaylistMaker"
     tools:context=".SettingsActivity">
 
-    <LinearLayout
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/back_main"
+        style="@style/MaterialToolbarMenu"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        app:navigationIcon="@drawable/arrow_back"
+        app:title="@string/search"
+        tools:ignore="MissingConstraints" />
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/back_main"
-                style="@style/MaterialToolbarMenu"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:navigationIcon="@drawable/arrow_back"
-                app:title="@string/search" />
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-    </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
