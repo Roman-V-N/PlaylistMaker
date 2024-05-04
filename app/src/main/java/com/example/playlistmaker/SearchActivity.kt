@@ -5,10 +5,15 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.View.GONE
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.MaterialToolbar
 
 class SearchActivity : AppCompatActivity() {
@@ -31,6 +36,12 @@ class SearchActivity : AppCompatActivity() {
 
         val backButton = findViewById<MaterialToolbar>(R.id.back_main)
         val clearButton = findViewById<ImageView>(R.id.clear_button)
+
+        val trackRecyclerView = findViewById<RecyclerView>(R.id.recyclerViewTrackList)
+        trackRecyclerView.layoutManager = LinearLayoutManager(this)
+
+
+
         searchEdit = findViewById(R.id.search_edit)
 
         searchEdit.requestFocus()
@@ -42,6 +53,7 @@ class SearchActivity : AppCompatActivity() {
 
         clearButton.setOnClickListener {
             searchEdit.setText(VALUE_DEF)
+            trackRecyclerView.visibility = INVISIBLE
             val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(searchEdit.windowToken, 0)
             searchEdit.clearFocus()
@@ -56,6 +68,9 @@ class SearchActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 editValue = s.toString()
                 clearButton.visibility = clearButtonVisibility(s)
+                trackRecyclerView.visibility = VISIBLE
+                val trackAdapter = TrackAdapter(trackList)
+                trackRecyclerView.adapter = trackAdapter
             }
 
             override fun afterTextChanged(s: Editable?) {

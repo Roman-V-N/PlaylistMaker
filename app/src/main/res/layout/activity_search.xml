@@ -23,9 +23,10 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop30dp"
         android:orientation="horizontal"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
 
         <EditText
@@ -33,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/marginStart16dp"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="65dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/rounded_edit"
             android:drawableStart="@drawable/search"
@@ -54,12 +55,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginTop="86dp"
+            android:layout_marginTop="85dp"
             android:layout_marginEnd="32dp"
             android:src="@drawable/clear"
             android:visibility="gone"
             app:tint="@color/black02" />
 
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewTrackList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="140dp"
+            android:orientation="vertical"
+            tools:listitem="@layout/tracks_view"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </FrameLayout>
 

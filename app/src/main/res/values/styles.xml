@@ -38,5 +38,10 @@
         <item name="android:background">?attr/colorSecondaryVariant</item>
     </style>
 
+    <style name="TrackArtistTime">
+         <item name="android:textSize">11sp</item>
+        <item name="android:fontFamily">@font/ys_display_regular</item>
+        <item name="titleTextColor">@color/gray</item>
+    </style>
 
 </resources>
