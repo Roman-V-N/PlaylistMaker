@@ -24,10 +24,8 @@ class TrackViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             .transform(RoundedCorners(6))
             .placeholder(R.drawable.placeholder)
             .into(trackImage)
-        if (model.trackName.length > 30) trackName.text = "${model.trackName.slice(0..35)}..."
-        else trackName.text = model.artistName
-        if (model.artistName.length > 40) trackArtist.text = "${model.artistName.slice(0..40)}..."
-        else trackArtist.text = model.artistName
+        trackName.text = model.trackName
+        trackArtist.text = model.artistName
         trackTime.text = model.trackTime
     }
 

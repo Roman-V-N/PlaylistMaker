@@ -67,10 +67,17 @@ class SearchActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 editValue = s.toString()
-                clearButton.visibility = clearButtonVisibility(s)
-                trackRecyclerView.visibility = VISIBLE
-                val trackAdapter = TrackAdapter(trackList)
-                trackRecyclerView.adapter = trackAdapter
+                if (editValue == VALUE_DEF) trackRecyclerView.visibility = INVISIBLE
+                else {
+                    clearButton.visibility = clearButtonVisibility(s)
+                    val editList = trackList.filter {
+                        it.artistName.startsWith(editValue, ignoreCase = true)
+                                || it.trackName.startsWith(editValue, ignoreCase = true)
+                    }
+                    val trackAdapter = TrackAdapter(editList)
+                    trackRecyclerView.adapter = trackAdapter
+                    trackRecyclerView.visibility = VISIBLE
+                }
             }
 
             override fun afterTextChanged(s: Editable?) {
