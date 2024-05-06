@@ -18,10 +18,11 @@ class TrackViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     @SuppressLint("SetTextI18n")
     fun bind(model: Track) {
+        val trackImageRadius = itemView.context.resources.getDimension(R.dimen.track_image_radius)
         Glide.with(itemView)
             .load(model.artworkUrl100)
             .centerCrop()
-            .transform(RoundedCorners(6))
+            .transform(RoundedCorners(trackImageRadius.toInt()))
             .placeholder(R.drawable.placeholder)
             .into(trackImage)
         trackName.text = model.trackName

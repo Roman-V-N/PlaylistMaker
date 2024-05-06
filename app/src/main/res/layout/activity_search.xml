@@ -19,59 +19,63 @@
         app:title="@string/search"
         tools:ignore="MissingConstraints" />
 
-
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-
-        <EditText
-            android:id="@+id/search_edit"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/marginStart16dp"
-            android:layout_marginTop="65dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/rounded_edit"
-            android:drawableStart="@drawable/search"
-            android:drawablePadding="8dp"
-            android:drawableTint="?attr/colorSecondary"
-            android:fontFamily="@font/ys_display_medium"
-            android:hint="@string/search"
-            android:inputType="textCapSentences"
-            android:lines="1"
-            android:padding="12dp"
-            android:textColor="@color/black02"
-            android:textColorHint="?attr/colorSecondary"
-            android:textCursorDrawable="@drawable/edit_cursor"
-            android:textSize="16sp" />
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp">
 
-        <ImageView
-            android:id="@+id/clear_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginTop="85dp"
-            android:layout_marginEnd="32dp"
-            android:src="@drawable/clear"
-            android:visibility="gone"
-            app:tint="@color/black02" />
 
+            <EditText
+                android:id="@+id/search_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/marginStart16dp"
+                android:layout_marginTop="65dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/rounded_edit"
+                android:drawableStart="@drawable/search"
+                android:drawablePadding="8dp"
+                android:drawableTint="?attr/colorSecondary"
+                android:fontFamily="@font/ys_display_medium"
+                android:hint="@string/search"
+                android:inputType="textCapSentences"
+                android:lines="1"
+                android:padding="12dp"
+                android:textColor="@color/black02"
+                android:textColorHint="?attr/colorSecondary"
+                android:textCursorDrawable="@drawable/edit_cursor"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/clear_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="85dp"
+                android:layout_marginEnd="32dp"
+                android:src="@drawable/clear"
+                android:visibility="gone"
+                app:tint="@color/black02" />
+
+        </FrameLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewTrackList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="140dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            tools:listitem="@layout/tracks_view"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            android:paddingTop="24dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/tracks_view" />
 
-    </FrameLayout>
 
-
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

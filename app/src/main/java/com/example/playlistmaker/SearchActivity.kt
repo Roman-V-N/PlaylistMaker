@@ -21,31 +21,22 @@ class SearchActivity : AppCompatActivity() {
     private var editValue: String = VALUE_DEF
     private lateinit var searchEdit: EditText
 
-
     companion object {
         const val INPUT_TEXT = "INPUT_TEXT"
         const val VALUE_DEF = ""
     }
-
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
-
         val backButton = findViewById<MaterialToolbar>(R.id.back_main)
         val clearButton = findViewById<ImageView>(R.id.clear_button)
-
         val trackRecyclerView = findViewById<RecyclerView>(R.id.recyclerViewTrackList)
         trackRecyclerView.layoutManager = LinearLayoutManager(this)
-
-
-
         searchEdit = findViewById(R.id.search_edit)
-
         searchEdit.requestFocus()
-
 
         backButton.setNavigationOnClickListener {
             super.finish()
@@ -59,7 +50,6 @@ class SearchActivity : AppCompatActivity() {
             searchEdit.clearFocus()
         }
 
-
         val editTextWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 // empty
@@ -67,8 +57,10 @@ class SearchActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 editValue = s.toString()
-                if (editValue == VALUE_DEF) trackRecyclerView.visibility = INVISIBLE
-                else {
+                if (editValue == VALUE_DEF) {
+                    trackRecyclerView.visibility = INVISIBLE
+                    clearButton.visibility = INVISIBLE
+                } else {
                     clearButton.visibility = clearButtonVisibility(s)
                     val editList = trackList.filter {
                         it.artistName.startsWith(editValue, ignoreCase = true)
