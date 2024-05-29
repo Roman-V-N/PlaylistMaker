@@ -25,4 +25,20 @@
         <item name="titleTextColor">@color/white</item>
     </style>
 
+    <style name="ErrorWrongImage">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:backgroundTint">?attr/colorOnPrimary</item>
+        <item name="android:paddingTop">@dimen/padding_top_error_image</item>
+        <item name="android:paddingBottom">@dimen/padding_bottom_error_image</item>
+        <item name="android:src">@drawable/error_nothing_dm</item>
+    </style>
+
+    <style name="ErrorInternetImage">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:backgroundTint">?attr/colorOnPrimary</item>
+        <item name="android:paddingTop">@dimen/padding_top_error_image</item>
+        <item name="android:paddingBottom">@dimen/padding_bottom_error_image</item>
+        <item name="android:src">@drawable/error_internet_dm</item>
+    </style>
+
 </resources>

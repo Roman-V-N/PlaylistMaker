@@ -12,4 +12,7 @@
     <string name="email_text">Спасибо разработчикам и разработчицам за крутое приложение!</string>
     <string name="site_share" translatable="false">https://practicum.yandex.ru/android-developer/?from=catalog</string>
     <string name="site_agreement" translatable="false">https://yandex.ru/legal/practicum_offer/</string>
+    <string name="nothing">Ничего не нашлось</string>
+    <string name="error_internet">Проблемы со связью\n\nЗагрузка не удалась. Проверьте\n подключение к интернету</string>
+    <string name="update">Обновить</string>
 </resources>

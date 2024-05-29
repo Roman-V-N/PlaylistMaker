@@ -14,4 +14,6 @@
     <dimen name="size_20dp">20dp</dimen>
     <dimen name="size_22dp">22dp</dimen>
     <dimen name="track_image_radius">2dp</dimen>
+    <dimen name="padding_top_error_image">102dp</dimen>
+    <dimen name="padding_bottom_error_image">16dp</dimen>
 </resources>
