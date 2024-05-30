@@ -30,7 +30,7 @@ class SearchActivity : AppCompatActivity() {
     private var editValue: String = VALUE_DEF
     private lateinit var searchEdit: EditText
 
-    val trackList: MutableList<Track> = mutableListOf()
+    private val trackList: MutableList<Track> = mutableListOf()
 
     private var trackAdapter = TrackAdapter(trackList)
 
@@ -161,7 +161,8 @@ class SearchActivity : AppCompatActivity() {
                     call: Call<TracksResponse>,
                     response: Response<TracksResponse>
                 ) {
-                    if (response.code() == 200) {
+                    if (response.isSuccessful)
+                    {
                         trackList.clear()
                         errorNothingImage.visibility = GONE
                         errorInternetImage.visibility = GONE
@@ -169,11 +170,14 @@ class SearchActivity : AppCompatActivity() {
                         errorNothingText.visibility = GONE
                         errorInternetText.visibility = GONE
                         if (response.body()?.results?.isNotEmpty() == true) {
-                            trackList.addAll(response.body()?.results!!)
-                            trackAdapter.notifyDataSetChanged()
-                            trackAdapter = TrackAdapter(trackList)
-                            trackRecyclerView.adapter = trackAdapter
-                            trackRecyclerView.visibility = VISIBLE
+                            val searchResponse = response.body()?.results
+                            if (searchResponse != null) {
+                                trackList.addAll(searchResponse)
+                                trackAdapter.notifyDataSetChanged()
+                                trackAdapter = TrackAdapter(trackList)
+                                trackRecyclerView.adapter = trackAdapter
+                                trackRecyclerView.visibility = VISIBLE
+                            }
 
                         }
                         if (trackList.isEmpty()) {
@@ -187,6 +191,7 @@ class SearchActivity : AppCompatActivity() {
                         errorInternetText.visibility = VISIBLE
                         errorInternetImage.visibility = VISIBLE
                         errorInternetButton.visibility = VISIBLE
+                        trackRecyclerView.visibility = GONE
                     }
                 }
 
@@ -194,6 +199,8 @@ class SearchActivity : AppCompatActivity() {
                     errorInternetText.visibility = VISIBLE
                     errorInternetImage.visibility = VISIBLE
                     errorInternetButton.visibility = VISIBLE
+                    trackRecyclerView.visibility = GONE
+
                 }
             })
         }
