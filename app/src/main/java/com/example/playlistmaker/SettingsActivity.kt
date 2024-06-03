@@ -10,7 +10,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.switchmaterial.SwitchMaterial
 import com.google.android.material.textview.MaterialTextView
+import com.example.playlistmaker.App
 
 class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +24,16 @@ class SettingsActivity : AppCompatActivity() {
         val shareButton = findViewById<MaterialTextView>(R.id.share_app)
         val supportButton = findViewById<MaterialTextView>(R.id.support)
         val agreementButton = findViewById<MaterialTextView>(R.id.user_agreement)
+        val themeSwitcher = findViewById<SwitchMaterial>(R.id.theme_switch)
+
+        themeSwitcher.isChecked = DARK_THEME_VALUE
+
+      themeSwitcher.setOnCheckedChangeListener { _, checked ->
+            (applicationContext as App).switchTheme(checked)
+            DARK_THEME_VALUE = checked
+            (applicationContext as App).saveShared(checked)
+
+        }
 
 
         backButton.setNavigationOnClickListener {
